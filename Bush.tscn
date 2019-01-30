@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Bush.gd" type="Script" id=1]
+[ext_resource path="res://barbshadow.png" type="Texture" id=2]
+[ext_resource path="res://bush.png" type="Texture" id=3]
+[ext_resource path="res://mushroom.tscn" type="PackedScene" id=4]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+friction = 1.0
+rough = false
+bounce = 0.0
+absorbent = false
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 20, 20 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 20, 20, 2 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 40, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+linear_accel = 0.54
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 1.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 2.0
+scale_random = 0.0
+color = Color( 0.392157, 0.8, 0.192157, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Scale", "Spread", "Tangential Accel", "Trail" ]
+
+[node name="Bush" type="StaticBody2D" groups=[
+"bush",
+]]
+input_pickable = false
+collision_layer = 0
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+physics_material_override = SubResource( 1 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="shadow" type="Sprite" parent="."]
+z_as_relative = false
+texture = ExtResource( 2 )
+offset = Vector2( 2, 36 )
+_sections_unfolded = [ "Offset", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Offset" ]
+
+[node name="Area2D" type="Area2D" parent="."]
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 1024
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+amount = 8
+lifetime = 1.16
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 3 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Time", "Transform" ]
+
+[node name="mushroom" parent="." instance=ExtResource( 4 )]
+position = Vector2( 26.0133, 30.4234 )
+
+[node name="mushroom2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -17.9581, 29.2763 )
+flip_h = true
+_sections_unfolded = [ "Offset", "Pause", "Script", "Transform", "Visibility" ]
+
+[node name="mushroom3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2.94423, 41.5118 )
+

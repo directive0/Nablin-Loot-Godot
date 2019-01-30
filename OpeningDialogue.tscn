@@ -1,0 +1,38 @@
+[gd_scene format=2]
+
+[node name="AcceptDialog" type="AcceptDialog"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 114.0
+margin_top = 90.0
+margin_right = 668.0
+margin_bottom = 386.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "GREETZ"
+resizable = false
+dialog_text = "Welcome to Nablin Loot, one of the finest games ever crafted by human hands. 
+
+You are a Nablin, a small elf who makes their living stealing the
+ belongings of adventureres who happen to bed down in these woods. 
+
+The Nablin has no natural defenses or weapons, 
+so he must use the items he steals to get out of sticky situations.
+
+Adventurers often carry potions which knock enemies out, 
+pips which grow bushes with which to hide behind, and purses
+ that make a satisfying smack when you hit a barbarian.
+
+Press Space to loot!
+Press Shift to use an item!
+"
+dialog_hide_on_ok = true
+_sections_unfolded = [ "Dialog" ]
+

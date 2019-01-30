@@ -1,0 +1,536 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://intertitle.gd" type="Script" id=1]
+[ext_resource path="res://Wizard Stand.png" type="Texture" id=2]
+[ext_resource path="res://Wizard Attack.png" type="Texture" id=3]
+[ext_resource path="res://nablin.png" type="Texture" id=4]
+[ext_resource path="res://Bush Sparkle 1.png" type="Texture" id=5]
+[ext_resource path="res://Bush Sparkle 2.png" type="Texture" id=6]
+[ext_resource path="res://Bush Sparkle 3.png" type="Texture" id=7]
+[ext_resource path="res://overlay.png" type="Texture" id=8]
+[ext_resource path="res://oldsih.tres" type="DynamicFont" id=9]
+[ext_resource path="res://bootfont.tres" type="DynamicFont" id=10]
+[ext_resource path="res://dungeonlarge.tres" type="DynamicFont" id=11]
+[ext_resource path="res://dungeonsmall.tres" type="DynamicFont" id=12]
+[ext_resource path="res://title_score.tscn" type="PackedScene" id=13]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "shoot"
+length = 7.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Wizard Stand:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 3.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 266.811, 275.921 ), Vector2( 241.601, 275.921 ), Vector2( 636.109, 275.921 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Node2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("nablin:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.3, 3.5, 4.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0.882353, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Node2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 2.4, 2.6, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("quip:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 4, 6.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("outcome2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="intertitle" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/shoot = SubResource( 1 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Material", "Rect", "Theme", "Visibility", "custom_styles" ]
+
+[node name="Wizard Stand" type="Sprite" parent="."]
+position = Vector2( 174.688, 278.079 )
+scale = Vector2( 1.88007, 1.88007 )
+texture = ExtResource( 2 )
+flip_h = true
+_sections_unfolded = [ "Offset", "Transform", "frames" ]
+
+[node name="nablin" type="Sprite" parent="."]
+position = Vector2( 632.481, 326.737 )
+scale = Vector2( 1.8, 1.8 )
+texture = ExtResource( 4 )
+flip_h = true
+_sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 266.811, 275.921 )
+scale = Vector2( 1.88007, 1.88007 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 2
+playing = true
+_sections_unfolded = [ "Material", "Transform", "Visibility", "frames" ]
+
+[node name="overlay" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -240.0
+margin_right = 400.0
+margin_bottom = 240.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 8 )
+stretch_mode = 0
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.793103 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Node2D"]
+position = Vector2( 627, 371 )
+scale = Vector2( 1.88007, 1.88007 )
+frames = SubResource( 2 )
+animation = "default"
+playing = true
+_sections_unfolded = [ "Material", "Transform", "Visibility", "frames" ]
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Node2D"]
+position = Vector2( 665.719, 343.244 )
+scale = Vector2( 1.88007, 1.88007 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+_sections_unfolded = [ "Material", "Transform", "Visibility", "frames" ]
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="Node2D"]
+position = Vector2( 616, 325 )
+scale = Vector2( 1.88007, 1.88007 )
+frames = SubResource( 2 )
+animation = "default"
+playing = true
+_sections_unfolded = [ "Material", "Transform", "Visibility", "frames" ]
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Node2D"]
+position = Vector2( 656, 282 )
+scale = Vector2( 1.88007, 1.88007 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+_sections_unfolded = [ "Material", "Transform", "Visibility", "frames" ]
+
+[node name="reminder" type="Label" parent="."]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 315.0
+margin_top = 439.0
+margin_right = 1115.0
+margin_bottom = 492.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 9 )
+text = "Tap To Continue
+"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "custom_fonts" ]
+
+[node name="outcome2" type="Label" parent="."]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 124.0
+margin_top = 155.0
+margin_right = 364.0
+margin_bottom = 218.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Good enough."
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="quip" type="Label" parent="."]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 207.0
+margin_top = 155.0
+margin_right = 447.0
+margin_bottom = 218.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Good enough."
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="top" type="Control" parent="."]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_top = 13.0
+margin_bottom = 181.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="night_label" type="Label" parent="top"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -184.0
+margin_top = -61.0
+margin_right = 184.0
+margin_bottom = 61.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 11 )
+text = "Firstly Night"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="objectives" type="Control" parent="."]
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -43.0
+margin_bottom = 123.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor" ]
+
+[node name="title" type="Label" parent="objectives"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -200.0
+margin_right = 200.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 12 )
+text = "\"Just a Quick Nab\""
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_fonts" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="objectives"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -400.0
+margin_top = -99.0
+margin_right = 400.0
+margin_bottom = 75.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 12
+alignment = 0
+_sections_unfolded = [ "Anchor", "Margin", "Size Flags", "Theme", "custom_constants" ]
+
+[node name="obj1" type="Label" parent="objectives/VBoxContainer"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 800.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 9 )
+text = "In 1 minute"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "custom_fonts" ]
+
+[node name="obj2" type="Label" parent="objectives/VBoxContainer"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 800.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 9 )
+text = "Get 10,000 points"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="obj3" type="Label" parent="objectives/VBoxContainer"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 800.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 9 )
+text = "Loot a potion"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="fade_in" type="Timer" parent="."]
+process_mode = 1
+wait_time = 0.25
+one_shot = true
+autostart = true
+
+[node name="title" type="Timer" parent="."]
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="obj1" type="Timer" parent="."]
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="obj2" type="Timer" parent="."]
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="obj3" type="Timer" parent="."]
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="outcome" type="Timer" parent="."]
+process_mode = 1
+wait_time = 0.9
+one_shot = true
+autostart = false
+
+[node name="score2" parent="." instance=ExtResource( 13 )]
+margin_left = 13.0
+margin_top = 10.0
+margin_right = 148.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 10 )
+align = 0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="title" to="." method="_on_title_timeout"]
+[connection signal="timeout" from="obj1" to="." method="_on_obj1_timeout"]
+[connection signal="timeout" from="obj2" to="." method="_on_obj2_timeout"]
+[connection signal="timeout" from="obj3" to="." method="_on_obj3_timeout"]
+[connection signal="timeout" from="outcome" to="." method="_on_outcome_timeout"]

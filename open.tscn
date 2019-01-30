@@ -1,0 +1,776 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://open.gd" type="Script" id=1]
+[ext_resource path="res://Title Screen.png" type="Texture" id=2]
+[ext_resource path="res://bootfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Label.gd" type="Script" id=4]
+[ext_resource path="res://Sparkle Grey 1.png" type="Texture" id=5]
+[ext_resource path="res://Sparkle Grey 2.png" type="Texture" id=6]
+[ext_resource path="res://Sparkle Grey 3.png" type="Texture" id=7]
+[ext_resource path="res://sparkle.gd" type="Script" id=8]
+[ext_resource path="res://ui/info icon.png" type="Texture" id=9]
+[ext_resource path="res://oldsih.tres" type="DynamicFont" id=10]
+[ext_resource path="res://square.png" type="Texture" id=11]
+[ext_resource path="res://bush.png" type="Texture" id=12]
+[ext_resource path="res://progress.png" type="Texture" id=13]
+[ext_resource path="res://pip.png" type="Texture" id=14]
+[ext_resource path="res://flask.png" type="Texture" id=15]
+[ext_resource path="res://purse.png" type="Texture" id=16]
+[ext_resource path="res://sounds/Nightime-SoundBible.com-952309297.wav" type="AudioStream" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="Theme" id=2]
+
+Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[node name="global" type="Node"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -15.0
+margin_top = -10.0
+margin_right = 817.0
+margin_bottom = 483.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="Timer2" type="Timer" parent="."]
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility", "texture" ]
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Sprite"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 487.0
+margin_top = 320.0
+margin_right = 612.0
+margin_bottom = 341.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Push Space To Start"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode" ]
+
+[node name="Label" type="Label" parent="Sprite"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 12.0
+margin_top = 9.0
+margin_right = 80.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Highscore:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 4 )
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="sparkle" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 1, 0.995728, 0.726562, 1 )
+position = Vector2( 341, 31 )
+frames = SubResource( 1 )
+animation = "default"
+playing = true
+script = ExtResource( 8 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="sparkle2" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 1, 0.995728, 0.726562, 1 )
+position = Vector2( 340, 84 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 4
+playing = true
+script = ExtResource( 8 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="sparkle4" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 1, 0.995728, 0.726562, 1 )
+position = Vector2( 431, 99 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 4
+playing = true
+script = ExtResource( 8 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="sparkle5" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 1, 0.995728, 0.726562, 1 )
+position = Vector2( 474, 78 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 3
+playing = true
+script = ExtResource( 8 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="sparkle3" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 1, 0.995728, 0.726562, 1 )
+position = Vector2( 421, 39 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 4
+playing = true
+script = ExtResource( 8 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="info" type="TouchScreenButton" parent="."]
+position = Vector2( 747.499, 12.7943 )
+scale = Vector2( 0.55509, 0.55509 )
+normal = ExtResource( 9 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "info"
+visibility_mode = 0
+_sections_unfolded = [ "Visibility" ]
+
+[node name="reminder" type="Label" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 699.0
+margin_top = 443.0
+margin_right = 787.0
+margin_bottom = 468.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 10 )
+text = "Tap to start"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="start" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.00392157 )
+position = Vector2( -26.6716, 53.3645 )
+scale = Vector2( 11.9191, 6.13167 )
+normal = ExtResource( 11 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Visibility" ]
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 105.0
+margin_top = 63.0
+margin_right = -106.0
+margin_bottom = -64.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 2 )
+popup_exclusive = false
+window_title = "Info"
+resizable = false
+_sections_unfolded = [ "Material", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_icons", "custom_styles", "custom_styles/panel", "theme" ]
+
+[node name="TabContainer" type="TabContainer" parent="WindowDialog"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 29.0
+margin_right = 541.0
+margin_bottom = 324.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+tab_align = 1
+tabs_visible = true
+drag_to_rearrange_enabled = false
+
+[node name="Story" type="Tabs" parent="WindowDialog/TabContainer"]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+tab_align = 1
+scrolling_enabled = true
+drag_to_rearrange_enabled = false
+
+[node name="Container" type="Container" parent="WindowDialog/TabContainer/Story"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Label" type="Label" parent="WindowDialog/TabContainer/Story/Container"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "You are a Nablin. You spend your days stealing what you can from wandering adventurers. One night you spotted a sleeping traveller and sneakily grabbed a jewel resting by their side. Before you could react dark magic enveloped you! The wanderer was an evil wizard in disguise! Just as the wizard was about to destroy you a deal was struck: you would steal as much loot as you could to repay your debt to the wizard and he would let you live!
+
+You have only three nights to get the loot needed by the wizard to complete his nefarious mechanations. Will you be able to do it!?
+
+YOU MUST NAB ALL THE LOOT!!"
+align = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Gameplay" type="Tabs" parent="WindowDialog/TabContainer"]
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+tab_align = 1
+scrolling_enabled = true
+drag_to_rearrange_enabled = false
+
+[node name="Container2" type="Container" parent="WindowDialog/TabContainer/Gameplay"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Label" type="Label" parent="WindowDialog/TabContainer/Gameplay/Container2"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 23.0
+margin_bottom = -1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Move the Nablin around the screen using the on screen controls. 
+
+"
+align = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="WindowDialog/TabContainer/Gameplay/Container2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -148.0
+margin_top = -86.0
+margin_right = 148.0
+margin_bottom = -72.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Hide behind bushes, watch your stealth meter"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label7" type="Label" parent="WindowDialog/TabContainer/Gameplay/Container2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -163.0
+margin_top = -26.0
+margin_right = 163.0
+margin_bottom = -12.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "If the stealth meter fills the barbarian will wake up!"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="WindowDialog/TabContainer/Gameplay/Container2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -173.0
+margin_top = 18.0
+margin_right = 172.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Grab loot from the sleeping barbarian, each has a use!"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label4" type="Label" parent="WindowDialog/TabContainer/Gameplay/Container2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -204.0
+margin_top = 115.0
+margin_right = -64.0
+margin_bottom = 129.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Pits grow new bushes"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label5" type="Label" parent="WindowDialog/TabContainer/Gameplay/Container2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 52.0
+margin_top = 115.0
+margin_right = 219.0
+margin_bottom = 129.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Purses stun the barbarian!"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label6" type="Label" parent="WindowDialog/TabContainer/Gameplay/Container2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -114.0
+margin_top = 39.0
+margin_right = 107.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Potions put the barbarian to sleep!"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/TabContainer/Gameplay/Container2"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 143.0
+margin_top = 57.0
+margin_right = 223.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 64, 64 )
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 12 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="TextureRect5" type="TextureRect" parent="WindowDialog/TabContainer/Gameplay/Container2"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 259.0
+margin_top = 68.0
+margin_right = 464.0
+margin_bottom = 148.0
+rect_min_size = Vector2( 64, 64 )
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 13 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WindowDialog/TabContainer/Gameplay/Container2"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = 195.0
+margin_right = 265.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 132
+alignment = 1
+_sections_unfolded = [ "Rect", "custom_constants" ]
+
+[node name="TextureRect2" type="TextureRect" parent="WindowDialog/TabContainer/Gameplay/Container2/HBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 106.0
+margin_right = 176.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 64, 64 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 14 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="TextureRect3" type="TextureRect" parent="WindowDialog/TabContainer/Gameplay/Container2/HBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 308.0
+margin_right = 378.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 64, 64 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 15 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="TextureRect4" type="TextureRect" parent="WindowDialog/TabContainer/Gameplay/Container2/HBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 510.0
+margin_right = 580.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 64, 64 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 16 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Credits" type="Tabs" parent="WindowDialog/TabContainer"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+tab_align = 1
+scrolling_enabled = true
+drag_to_rearrange_enabled = false
+
+[node name="Container2" type="Container" parent="WindowDialog/TabContainer/Credits"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Label" type="Label" parent="WindowDialog/TabContainer/Credits/Container2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -208.0
+margin_top = -120.0
+margin_right = 207.0
+margin_bottom = 166.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Produced in Toronto, Canada by Skurfsoft in 2018.
+
+All artwork by Aron Kozma
+
+Programming and concept by Chris Barrett
+
+Thank you to our testers:
+Jeff Halpenny
+Mike McGown
+Bren Anderson
+
+"
+align = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Attribution" type="Tabs" parent="WindowDialog/TabContainer"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+tab_align = 1
+scrolling_enabled = true
+drag_to_rearrange_enabled = false
+
+[node name="Container2" type="Container" parent="WindowDialog/TabContainer/Attribution"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Label" type="Label" parent="WindowDialog/TabContainer/Attribution/Container2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -208.0
+margin_top = -120.0
+margin_right = 207.0
+margin_bottom = 166.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Nightime Sound:
+\"Nightime\"
+Recorded by Mike Koenig 
+www.soundbible.com/951-Nightime.html
+Licensed under Creative Commons: By Attribution 3.0
+
+Title and Level Music:
+\"Division\", \"Eternal Terminal\"
+Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 3.0
+
+http://creativecommons.org/licenses/by/3.0/
+
+Made using the Godot Game Engine https://godotengine.org/
+"
+align = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -22.0
+pitch_scale = 1.0
+autoplay = true
+stream_paused = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "stream" ]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="info" to="." method="_on_TouchScreenButton_pressed"]
+[connection signal="pressed" from="start" to="." method="_on_TouchScreenButton2_pressed"]
+[connection signal="popup_hide" from="WindowDialog" to="." method="_on_WindowDialog_popup_hide"]

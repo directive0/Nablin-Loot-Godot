@@ -1,0 +1,197 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://button.png" type="Texture" id=1]
+[ext_resource path="res://buttonpressed.png" type="Texture" id=2]
+[ext_resource path="res://controls/up_control.png" type="Texture" id=3]
+[ext_resource path="res://controls/side_control.png" type="Texture" id=4]
+
+[node name="controls" type="Node2D"]
+modulate = Color( 1, 1, 1, 0.690196 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="loot" type="TouchScreenButton" parent="."]
+position = Vector2( 546.754, 351.243 )
+scale = Vector2( 1.0233, 1.0233 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "loot"
+visibility_mode = 1
+
+[node name="Label" type="Label" parent="loot"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 44.0
+margin_right = 72.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "LOOT"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="use" type="TouchScreenButton" parent="."]
+position = Vector2( 673.346, 351.818 )
+scale = Vector2( 1.0233, 1.0233 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "use_item"
+visibility_mode = 1
+
+[node name="Label2" type="Label" parent="use"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 23.0
+margin_top = 44.0
+margin_right = 82.0
+margin_bottom = 58.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "USE ITEM"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors" ]
+
+[node name="Node2D" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 105.417, 377.911 )
+scale = Vector2( 0.6, 0.6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="up" type="TouchScreenButton" parent="Node2D"]
+position = Vector2( -72.5037, -144.168 )
+normal = ExtResource( 3 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = true
+action = "ui_up"
+visibility_mode = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="up_right" type="TouchScreenButton" parent="Node2D"]
+position = Vector2( 25.5335, -124.404 )
+normal = ExtResource( 4 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = true
+action = "ui_up_right"
+visibility_mode = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="down_right" type="TouchScreenButton" parent="Node2D"]
+position = Vector2( 127.362, 28.7583 )
+rotation = 1.5708
+normal = ExtResource( 4 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = true
+action = "ui_down_right"
+visibility_mode = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="down_left" type="TouchScreenButton" parent="Node2D"]
+position = Vector2( -25.1087, 129.332 )
+rotation = -3.14159
+normal = ExtResource( 4 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = true
+action = "ui_down_left"
+visibility_mode = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="up_left" type="TouchScreenButton" parent="Node2D"]
+position = Vector2( -125.616, -22.8671 )
+rotation = -1.5708
+normal = ExtResource( 4 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = true
+action = "ui_up_left"
+visibility_mode = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="right" type="TouchScreenButton" parent="Node2D"]
+position = Vector2( 146.639, -71.069 )
+rotation = 1.5708
+normal = ExtResource( 3 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = true
+action = "ui_right"
+visibility_mode = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="left" type="TouchScreenButton" parent="Node2D"]
+position = Vector2( -145.952, 75.8599 )
+rotation = -1.5708
+normal = ExtResource( 3 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = true
+action = "ui_left"
+visibility_mode = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="down" type="TouchScreenButton" parent="Node2D"]
+position = Vector2( 73.8966, 149.721 )
+rotation = -3.14159
+normal = ExtResource( 3 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = true
+action = "ui_down"
+visibility_mode = 1
+_sections_unfolded = [ "Transform" ]
+

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sparkleparticle.tres" type="Material" id=1]
+[ext_resource path="res://sparklesheet.png" type="Texture" id=2]
+[ext_resource path="res://splash.gd" type="Script" id=3]
+
+[node name="splash" type="Particles2D"]
+position = Vector2( 18, -47 )
+emitting = false
+amount = 32
+lifetime = 1.5
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 5
+v_frames = 1
+script = ExtResource( 3 )
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Visibility" ]
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 2.56
+one_shot = true
+autostart = false
+

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/00 - Sparkle-sound-effect - Sparkle-sound-effect.ogg-02e0e46aea7d37c4d9163e9137ea06d2.oggstr"
+
+[deps]
+
+source_file="res://sounds/00 - Sparkle-sound-effect - Sparkle-sound-effect.ogg"
+dest_files=[ "res://.import/00 - Sparkle-sound-effect - Sparkle-sound-effect.ogg-02e0e46aea7d37c4d9163e9137ea06d2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

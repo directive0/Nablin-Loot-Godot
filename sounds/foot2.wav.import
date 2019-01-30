@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/foot2.wav-2870a293b892c5ca941c9bb091814cd5.sample"
+
+[deps]
+
+source_file="res://sounds/foot2.wav"
+dest_files=[ "res://.import/foot2.wav-2870a293b892c5ca941c9bb091814cd5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

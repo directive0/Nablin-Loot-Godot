@@ -1,0 +1,70 @@
+[gd_resource type="ParticlesMaterial" load_steps=5 format=2]
+
+[sub_resource type="Curve" id=1]
+
+min_value = -200.0
+max_value = 200.0
+bake_resolution = 100
+_data = [ Vector2( 0, 200 ), 0.0, 1142.46, 0, 0, Vector2( 0.530765, -200 ), -111.322, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+
+flags = 4
+width = 2048
+curve = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+
+min_value = -200.0
+max_value = 200.0
+bake_resolution = 100
+_data = [ Vector2( 0, 38.6719 ), 0.0, -130.171, 0, 0, Vector2( 0.0290653, 4.29688 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 2048
+curve = SubResource( 3 )
+
+[resource]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 10, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 4.56389e-41
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 10.0
+linear_accel_random = 1.0
+linear_accel_curve = SubResource( 2 )
+radial_accel = 0.0
+radial_accel_random = 0.0
+radial_accel_curve = SubResource( 4 )
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 5.0
+anim_speed_random = 1.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = true
+_sections_unfolded = [ "Emission Shape", "Flags", "Gravity", "Linear Accel" ]
+

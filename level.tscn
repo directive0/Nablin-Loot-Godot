@@ -1,0 +1,717 @@
+[gd_scene load_steps=55 format=2]
+
+[ext_resource path="res://level.gd" type="Script" id=1]
+[ext_resource path="res://sounds/Constance.ogg" type="AudioStream" id=2]
+[ext_resource path="res://background.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Fire.gd" type="Script" id=4]
+[ext_resource path="res://CampfireLight.png" type="Texture" id=5]
+[ext_resource path="res://CampfireLogs.png" type="Texture" id=6]
+[ext_resource path="res://CampfireFire.png" type="Texture" id=7]
+[ext_resource path="res://CampfireFire2.png" type="Texture" id=8]
+[ext_resource path="res://phatpixel.png" type="Texture" id=9]
+[ext_resource path="res://Barbarian.tscn" type="PackedScene" id=10]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Bush.tscn" type="PackedScene" id=12]
+[ext_resource path="res://overlay.png" type="Texture" id=13]
+[ext_resource path="res://Scripts/health.gd" type="Script" id=14]
+[ext_resource path="res://heart.png" type="Texture" id=15]
+[ext_resource path="res://back.png" type="Texture" id=16]
+[ext_resource path="res://progress.png" type="Texture" id=17]
+[ext_resource path="res://Scripts/stealth.gd" type="Script" id=18]
+[ext_resource path="res://itemframe.tscn" type="PackedScene" id=19]
+[ext_resource path="res://largebootfont.tres" type="DynamicFont" id=20]
+[ext_resource path="res://Scripts/Label.gd" type="Script" id=21]
+[ext_resource path="res://square.png" type="Texture" id=22]
+[ext_resource path="res://score.tscn" type="PackedScene" id=23]
+[ext_resource path="res://timer.gd" type="Script" id=24]
+[ext_resource path="res://Hourglass 1.png" type="Texture" id=25]
+[ext_resource path="res://Hourglass 2.png" type="Texture" id=26]
+[ext_resource path="res://Hourglass 3.png" type="Texture" id=27]
+[ext_resource path="res://Hourglass 4.png" type="Texture" id=28]
+[ext_resource path="res://Hourglass 5.png" type="Texture" id=29]
+[ext_resource path="res://timerfont.tres" type="DynamicFont" id=30]
+[ext_resource path="res://controls.tscn" type="PackedScene" id=31]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+friction = 1.0
+rough = false
+bounce = 0.0
+absorbent = false
+
+[sub_resource type="PhysicsMaterial" id=2]
+
+friction = 1.0
+rough = false
+bounce = 0.0
+absorbent = false
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Gradient" id=4]
+
+offsets = PoolRealArray( 0, 0.597956, 1 )
+colors = PoolColorArray( 1, 0.609375, 0, 1, 1, 0.9375, 0, 1, 0.628906, 0.526228, 0.123414, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+
+flags = 4
+gradient = SubResource( 4 )
+width = 2048
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="Curve" id=6]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.952923, 0.773682 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -2.26686, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+
+flags = 4
+width = 2048
+curve = SubResource( 6 )
+
+[sub_resource type="Gradient" id=8]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=9]
+
+flags = 4
+gradient = SubResource( 8 )
+width = 2048
+
+[sub_resource type="Curve" id=10]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+
+flags = 4
+width = 2048
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+
+render_priority = 0
+trail_divisor = 1
+trail_size_modifier = SubResource( 11 )
+trail_color_modifier = SubResource( 9 )
+emission_shape = 2
+emission_box_extents = Vector3( 1, 10, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 0.0
+flatness = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 25.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 7 )
+color_ramp = SubResource( 5 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Scale", "Spread", "Trail" ]
+
+[sub_resource type="RectangleShape2D" id=13]
+
+custom_solver_bias = 0.0
+extents = Vector2( 22, 20 )
+
+[sub_resource type="PhysicsMaterial" id=14]
+
+friction = 1.0
+rough = false
+bounce = 0.0
+absorbent = false
+
+[sub_resource type="PhysicsMaterial" id=15]
+
+friction = 1.0
+rough = false
+bounce = 0.0
+absorbent = false
+
+[sub_resource type="PhysicsMaterial" id=16]
+
+friction = 1.0
+rough = false
+bounce = 0.0
+absorbent = false
+
+[sub_resource type="PhysicsMaterial" id=17]
+
+friction = 1.0
+rough = false
+bounce = 0.0
+absorbent = false
+
+[sub_resource type="PhysicsMaterial" id=18]
+
+friction = 1.0
+rough = false
+bounce = 0.0
+absorbent = false
+
+[sub_resource type="RectangleShape2D" id=19]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 245.814 )
+
+[sub_resource type="RectangleShape2D" id=20]
+
+custom_solver_bias = 0.0
+extents = Vector2( 419.764, 53.3662 )
+
+[sub_resource type="GDScript" id=21]
+
+script/source = "extends Sprite
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+func spriteoff():
+	pass"
+
+[sub_resource type="ParticlesMaterial" id=22]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 0.0
+flatness = 0.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 6.48801e-43
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 2.0
+scale_random = 0.0
+color = Color( 0.890196, 0.835294, 0.541176, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Emission Shape", "Flags", "Hue Variation", "Scale", "Spread", "Trail" ]
+
+[sub_resource type="SpriteFrames" id=23]
+
+animations = [ {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "ticktock",
+"speed": 5.0
+} ]
+
+[node name="Root" type="Node2D" groups=[
+"level",
+]]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 13.0 ],
+"_edit_vertical_guides_": [ 14.0, 785.0 ]
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -13.667
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "stream" ]
+
+[node name="Background" type="StaticBody2D" parent="."]
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+physics_material_override = SubResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Background"]
+texture = ExtResource( 3 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="YSort" type="YSort" parent="." groups=[
+"stage",
+]]
+sort_enabled = true
+_sections_unfolded = [ "Material", "Sort", "Transform", "Visibility", "Z Index" ]
+
+[node name="Fire" type="StaticBody2D" parent="YSort" groups=[
+"fire",
+]]
+editor/display_folded = true
+position = Vector2( 461, 353 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+physics_material_override = SubResource( 2 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Glow" type="Sprite" parent="YSort/Fire"]
+position = Vector2( -2.61139, 21.9356 )
+texture = ExtResource( 5 )
+
+[node name="Logs" type="Sprite" parent="YSort/Fire"]
+position = Vector2( -3.65588, -4.17822 )
+texture = ExtResource( 6 )
+offset = Vector2( 0, 20 )
+_sections_unfolded = [ "Offset" ]
+
+[node name="Flames" type="AnimatedSprite" parent="YSort/Fire"]
+editor/display_folded = true
+frames = SubResource( 3 )
+animation = "default"
+frame = 1
+playing = true
+
+[node name="Particles2D" type="Particles2D" parent="YSort/Fire/Flames"]
+show_behind_parent = true
+rotation = -1.5708
+emitting = true
+amount = 8
+lifetime = 1.36
+one_shot = false
+preprocess = 0.0
+speed_scale = 2.01
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 12 )
+texture = ExtResource( 9 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
+
+[node name="Area2D" type="Area2D" parent="YSort/Fire"]
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 1024
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Fire/Area2D"]
+shape = SubResource( 13 )
+
+[node name="Barbarian" parent="YSort" instance=ExtResource( 10 )]
+
+[node name="Player" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 90, 137 )
+
+[node name="Bush" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 214, 220 )
+physics_material_override = SubResource( 14 )
+
+[node name="Bush2" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 286, 392 )
+physics_material_override = SubResource( 15 )
+
+[node name="Bush3" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 515, 158 )
+physics_material_override = SubResource( 16 )
+
+[node name="Bush4" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 619, 292 )
+physics_material_override = SubResource( 17 )
+
+[node name="Walls" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+physics_material_override = SubResource( 18 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="wallleft" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2( -9.95811, 242.767 )
+shape = SubResource( 19 )
+
+[node name="wallright" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2( 810, 242 )
+shape = SubResource( 19 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="walltop" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2( 402.272, 0 )
+shape = SubResource( 20 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="wallbottom" type="CollisionShape2D" parent="Walls/StaticBody2D"]
+position = Vector2( 399.709, 530 )
+shape = SubResource( 20 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="overlay" type="Sprite" parent="."]
+texture = ExtResource( 13 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="health" type="Node" parent="." groups=[
+"health",
+]]
+script = ExtResource( 14 )
+
+[node name="heart1" type="Sprite" parent="health"]
+position = Vector2( 238, 23 )
+texture = ExtResource( 15 )
+script = SubResource( 21 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="heart2" type="Sprite" parent="health"]
+position = Vector2( 268, 23 )
+texture = ExtResource( 15 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="heart3" type="Sprite" parent="health"]
+position = Vector2( 192, 16 )
+texture = ExtResource( 15 )
+offset = Vector2( 106, 7 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="stealth" type="TextureProgress" parent="." groups=[
+"stealth",
+]]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 218.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 1000.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+allow_greater = false
+allow_lesser = false
+texture_under = ExtResource( 16 )
+texture_over = null
+texture_progress = ExtResource( 17 )
+tint_under = Color( 1, 1, 1, 1 )
+tint_over = Color( 1, 1, 1, 1 )
+tint_progress = Color( 1, 1, 1, 1 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="itemframe" parent="." instance=ExtResource( 19 )]
+
+[node name="boxtimer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = false
+
+[node name="gentimer" type="Timer" parent="." groups=[
+"timer",
+]]
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="Control2" type="Control" parent="."]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 802.0
+margin_bottom = 482.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -243.0
+margin_top = -43.5
+margin_right = 243.0
+margin_bottom = 43.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 20 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "GAME OVER"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 21 )
+_sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="reminder" type="Label" parent="Control2/Label"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -49.0
+margin_top = 32.0
+margin_right = 50.0
+margin_bottom = 46.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Tap to continue"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="ColorRect" type="ColorRect" parent="Control2/Label"]
+show_behind_parent = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -239.0
+margin_top = -26.0
+margin_right = 239.0
+margin_bottom = 13.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 0.545098 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control2/Label"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -217.787, -218 )
+scale = Vector2( 12.7737, 7.08936 )
+normal = ExtResource( 22 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Visibility", "normal" ]
+
+[node name="score" parent="." groups=[
+"score",
+] instance=ExtResource( 23 )]
+
+[node name="timer" type="Node" parent="."]
+editor/display_folded = true
+script = ExtResource( 24 )
+
+[node name="gametimer" type="Timer" parent="timer"]
+process_mode = 1
+wait_time = 60.0
+one_shot = true
+autostart = false
+
+[node name="Particles2D" type="Particles2D" parent="timer"]
+position = Vector2( 509, 32 )
+emitting = true
+amount = 1
+lifetime = 0.6
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -5, -5, 10, 25 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 22 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Material", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="timer"]
+position = Vector2( 494, 13 )
+frames = SubResource( 23 )
+animation = "ticktock"
+centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="timer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 526.0
+margin_top = 13.0
+margin_right = 673.0
+margin_bottom = 54.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = ExtResource( 30 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "0000"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="controls" parent="." instance=ExtResource( 31 )]
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0.2 )
+
+[connection signal="firehit" from="YSort/Fire" to="YSort/Player" method="_on_Fire_firehit"]
+[connection signal="hit" from="YSort/Barbarian" to="YSort/Player" method="_on_Barbarian_hit"]
+[connection signal="gameover" from="YSort/Player" to="YSort/Barbarian" method="_on_Player_gameover"]
+[connection signal="gameover" from="YSort/Player" to="." method="_on_Player_gameover"]
+[connection signal="moving" from="YSort/Player" to="stealth" method="_on_Player_moving"]
+[connection signal="death" from="health" to="YSort/Player" method="_on_health_death"]
+[connection signal="death" from="health" to="YSort/Barbarian" method="_on_health_death"]
+[connection signal="Awake" from="stealth" to="YSort/Barbarian" method="_on_stealth_Awake"]
+[connection signal="pressed" from="Control2/Label/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
+[connection signal="timesup" from="timer" to="Control2/Label" method="_on_timer_timesup"]
+[connection signal="timesup" from="timer" to="YSort/Player" method="_on_timer_timesup"]
+[connection signal="timesup" from="timer" to="YSort/Barbarian" method="_on_timer_timesup"]
+[connection signal="timesup" from="timer" to="." method="_on_timer_timesup"]
+
+[editable path="YSort/Player"]
+
+[editable path="controls"]

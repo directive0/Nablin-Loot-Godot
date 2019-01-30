@@ -1,0 +1,255 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Scripts/Nablin.gd" type="Script" id=1]
+[ext_resource path="res://sounds/get.wav" type="AudioStream" id=2]
+[ext_resource path="res://nabshadow.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/shadow.gd" type="Script" id=4]
+[ext_resource path="res://f1.png" type="Texture" id=5]
+[ext_resource path="res://nablin.png" type="Texture" id=6]
+[ext_resource path="res://f2.png" type="Texture" id=7]
+[ext_resource path="res://loot.png" type="Texture" id=8]
+[ext_resource path="res://nablinhit.png" type="Texture" id=9]
+[ext_resource path="res://nablindeath.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/AnimatedSprite.gd" type="Script" id=11]
+[ext_resource path="res://bubble.png" type="Texture" id=12]
+[ext_resource path="res://itemget.gd" type="Script" id=13]
+[ext_resource path="res://purse.png" type="Texture" id=14]
+[ext_resource path="res://foot1.wav" type="AudioStream" id=15]
+[ext_resource path="res://item.gd" type="Script" id=16]
+[ext_resource path="res://flasksmall.png" type="Texture" id=17]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 15, 31 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "Loot",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "Knockback",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "Death",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 3.59634 )
+
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 7.0
+
+[sub_resource type="Curve2D" id=5]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -1, 2, -45.1952, -0.0245203, 42.0931, -0.230624, 74.7458, -23, 0, 0, 0, 0, 156.746, 29 )
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7.02272, 8.23692 )
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+input_pickable = false
+collision_layer = 21
+collision_mask = 1
+collision/safe_margin = 0.08
+motion/sync_to_physics = false
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="boxcollision2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="get" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -20.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+mix_target = 0
+bus = "Master"
+
+[node name="stand" type="Area2D" parent="."]
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 1041
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Visibility" ]
+
+[node name="boxcollision3" type="CollisionShape2D" parent="stand"]
+position = Vector2( 0, -1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="body" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="shadow" type="Sprite" parent="body"]
+z_as_relative = false
+texture = ExtResource( 3 )
+offset = Vector2( 0, 27 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="body"]
+frames = SubResource( 2 )
+animation = "default"
+script = ExtResource( 11 )
+_sections_unfolded = [ "Transform", "frames" ]
+
+[node name="boxcollision" type="CollisionShape2D" parent="body"]
+position = Vector2( 0, -1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="itembubble" type="Sprite" parent="body"]
+visible = false
+position = Vector2( 8, 4 )
+z_index = 400
+z_as_relative = false
+texture = ExtResource( 12 )
+offset = Vector2( 60, -50 )
+script = ExtResource( 13 )
+_sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="body/itembubble"]
+texture = ExtResource( 14 )
+offset = Vector2( 60, -50 )
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="boxtimer" type="Timer" parent="body/itembubble"]
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="feet" type="Area2D" parent="body"]
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Audio Bus", "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/feet"]
+position = Vector2( 0, 26 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="lootcol" type="Area2D" parent="body"]
+position = Vector2( 26, -5 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 17
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/lootcol"]
+shape = SubResource( 4 )
+
+[node name="footfalls" type="AudioStreamPlayer2D" parent="body"]
+stream = ExtResource( 15 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+stream_paused = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="item" type="Path2D" parent="body"]
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+position = Vector2( 30.2542, -7 )
+curve = SubResource( 5 )
+script = ExtResource( 16 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="body/item"]
+editor/display_folded = true
+position = Vector2( -1, 2 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = false
+loop = false
+lookahead = 4.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="body/item/PathFollow2D"]
+position = Vector2( -0.962074, -0.272781 )
+rotation = 0.276285
+texture = ExtResource( 17 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="body/item/PathFollow2D/Sprite"]
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/item/PathFollow2D/Sprite/Area2D"]
+position = Vector2( 0, 1 )
+shape = SubResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Timer" type="Timer" parent="body/item"]
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[node name="Position2D" type="Position2D" parent="body/item"]
+position = Vector2( 156.746, 28 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Node2D" type="Node2D" parent="body"]
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="timeout" from="body/itembubble/boxtimer" to="body/itembubble" method="_on_Timer_timeout"]

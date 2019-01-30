@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Hourglass 5.png-ce3ffa48aae9fb0101153d27cb9bcdcd.stex"
+
+[deps]
+
+source_file="res://Hourglass 5.png"
+source_md5="c1d25146c1fdf0289eb9e40acf46a9d1"
+
+dest_files=[ "res://.import/Hourglass 5.png-ce3ffa48aae9fb0101153d27cb9bcdcd.stex" ]
+dest_md5="1e559af5a28299ca4d1f44e1ea3c3e2c"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Nightime-SoundBible.com-952309297.wav-c635485b56bb0ec86a5354926fcde959.sample"
+
+[deps]
+
+source_file="res://sounds/Nightime-SoundBible.com-952309297.wav"
+dest_files=[ "res://.import/Nightime-SoundBible.com-952309297.wav-c635485b56bb0ec86a5354926fcde959.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

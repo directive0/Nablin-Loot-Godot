@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Barbarian Crouch.png-9486fd68f5cf45816bfbee7b1b65bbfb.stex"
+
+[deps]
+
+source_file="res://Barbarian Crouch.png"
+source_md5="5654d382905fc67039c2f76efa823de6"
+
+dest_files=[ "res://.import/Barbarian Crouch.png-9486fd68f5cf45816bfbee7b1b65bbfb.stex" ]
+dest_md5="911e4785e82253ab1f52ecb84b2cf483"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

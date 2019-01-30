@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://item.gd" type="Script" id=1]
+[ext_resource path="res://flasksmall.png" type="Texture" id=2]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -1, 2, -45.1952, -0.0245203, 42.0931, -0.230624, 74.7458, -23, 0, 0, 0, 0, 156.746, 29 )
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7.02272, 8.23692 )
+
+[node name="item" type="Path2D"]
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+position = Vector2( 30.2542, -7 )
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+editor/display_folded = true
+position = Vector2( -1, 2 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = false
+loop = false
+lookahead = 4.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="PathFollow2D"]
+position = Vector2( -0.962074, -0.272781 )
+rotation = 0.276285
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D/Sprite"]
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Sprite/Area2D"]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 156.746, 28 )
+__meta__ = {
+"_edit_group_": true
+}
+

@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Barbarian Sleeping P2.png-cc70747bc3a070e643af8e12331b8079.stex"
+
+[deps]
+
+source_file="res://Barbarian Sleeping P2.png"
+source_md5="c65bd0cb0219b71e65d464b927021b98"
+
+dest_files=[ "res://.import/Barbarian Sleeping P2.png-cc70747bc3a070e643af8e12331b8079.stex" ]
+dest_md5="62937cd2d9bedc2211ef47238473f4c7"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
